@@ -18,7 +18,7 @@ export default function TextForm(props) {
  props.showAlert("Text converted to lowerCase","success")
    }
   const [text, setText] = useState('');
-  let count= text.length
+
  const handleCopy=(event)=>{
   let text=document.getElementById("myBox");
   text.select();
@@ -57,7 +57,7 @@ export default function TextForm(props) {
     </div>
     <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
       <h1>Your Text Summary</h1>
-      <p>{count>0?text.split(" ").length:0} words, {text.length} characters</p>
+      <p>{text.split(/\s+/).filter((element)=>{ return element.length!==0}).length} words, {text.length} characters</p>
     </div>
     </>
   )
